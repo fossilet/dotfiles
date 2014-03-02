@@ -38,11 +38,9 @@ set modeline
 " search in a singe file. This will confuse latex-suite. Set your grep
 " program to alway generate a file-name.
 set grepprg=grep\ -nH\ $*
-" color scheme
-" colorscheme zellner
 " lines and cos and window position
 if (has("gui_running"))
-    colorscheme peachpuff " darkblue
+    colorscheme peachpuff
     set lines=32
     set columns=80
     winpos 0 40
@@ -70,6 +68,13 @@ set formatoptions+=mM
 if (! has("gui_running"))
     set term=xterm
 endif
+
+" 'set term=xterm' will reset colorscheme to 'default'. Reset colorscheme after it.
+" The default color theme of Terminal.app on OSX has one kink - highlight is
+" not conspicuous, like Vim search and Git commit message highlight. Use an
+" alternative Vim colorscheme to work around it.
+colorscheme peachpuff
+
 " enable spelling checking
 set autochdir
 "set foldmethod=indent
