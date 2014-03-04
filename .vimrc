@@ -1,4 +1,6 @@
-" Vim config file
+" Vim config file.
+"
+" Use echo for debugging, e.g. echo &modelines.
 " Since 2007
 
 
@@ -29,7 +31,9 @@ set shiftwidth=4
 set expandtab
 " Enable modeline. Disabled by default on Debian-based distros for security.
 set modeline
-
+" This should be the default but is zero for me. It may have been overridden by
+" other configurations. Reset here.
+set modelines=5
 
 " Intermediate
 " =========================
