@@ -179,9 +179,7 @@ _mylogin() {
     COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
-    #args="$(get_hostnames.py)"
-    # This is much faster, less than 5ms.
-    args="$(redis-cli hget hash:hostnames key:values)"
+    args="$(get_hostnames.py)"
     COMPREPLY=( "${COMPREPLY[@]}" $( compgen -W "${args}" -- "${cur}" ) )
 }
 complete -F _mylogin mylogin
