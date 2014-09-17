@@ -1,0 +1,7 @@
+# Various things controlling readline
+# See bash(1)
+# Since Jun 20 2012
+#
+set completion-ignore-case on
+set mark-directories on
+set mark-symlinked-directories on
