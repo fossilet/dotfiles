@@ -9,6 +9,10 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
+# This will ensure that Vim in Homebrew is invoked rather than the
+# less featureful Vi in OS X.
+alias vi='vim'
+
 alias acs='apt-cache search'
 alias acshow='apt-cache show'
 alias agi='sudo apt-get install'
