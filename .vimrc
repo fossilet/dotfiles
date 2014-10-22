@@ -21,7 +21,7 @@ set encoding=utf8
 " Automatically detected character encodings
 set fileencodings=ucs-bom,utf8,cp936,big5
 " This enables automatic indentation as you type.
-filetype indent on
+filetype plugin indent on
 " Font for displaying file
 set guifont=Courier\ New\ 10
 " show line numbers
