@@ -1,0 +1,40 @@
+[core]
+[user]
+	name = Yongzhi Pan
+	signingkey = 9A061E08
+	email = panyongzhi@gmail.com
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	last = log --stat -1 HEAD
+	visual = !gitk
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	rt = remote
+[color]
+	diff = auto
+	ui = auto
+[core]
+	excludesfile = /Users/tux/.gitignore_global
+	name = Yongzhi Pan
+	page = 
+	pager = less -r
+[push]
+	default = current
+[rebase]
+	autosquash = true
+[init]
+	templatedir = ~/programming/git_template
+[merge]
+	tool = gvimdiff
+[pull]
+	rebase = false
+	ff = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
