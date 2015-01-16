@@ -139,3 +139,6 @@ match ExtraWhitespace /\s\+$\|\t/
 
 " Share with X clipboard
 set clipboard=unnamed
+
+" No swap file in current file.
+set dir=~/.tmp
