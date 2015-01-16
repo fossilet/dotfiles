@@ -138,4 +138,4 @@ highlight ExtraWhitespace ctermbg=grey guibg=red
 match ExtraWhitespace /\s\+$\|\t/
 
 " Share with X clipboard
-set clipboard=unnamedplus
+set clipboard=unnamed
