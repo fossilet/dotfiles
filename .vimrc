@@ -6,6 +6,7 @@
 " Pathogen
 " XXX: It will not work properly if put at last.
 execute pathogen#infect()
+call pathogen#helptags()
 
 " Basic
 " =========================
