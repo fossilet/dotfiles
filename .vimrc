@@ -143,3 +143,8 @@ set clipboard=unnamed
 
 " No swap file in current file.
 set dir=~/.tmp
+
+" Disable IME in command mode: http://zh.undozen.com/2013/14
+set noimdisable
+autocmd! InsertLeave * set imdisable|set iminsert=0
+autocmd! InsertEnter * set noimdisable|set iminsert=0
