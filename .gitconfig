@@ -13,6 +13,7 @@
 	visual = !gitk
         lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 	rt = remote
+	df = diff
 [color]
 	diff = auto
 	ui = auto
@@ -38,3 +39,11 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[rerere]
+	enable = true
+[diff]
+	mnemonicprefix = true
+	algorithm = histogram
