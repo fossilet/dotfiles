@@ -1,0 +1,11 @@
+#! /bin/bash
+
+# Startup script for X
+# Since Jun 18 2012
+
+xrandr --newmode "2552x1440_60.00"  310.00  2552 2736 3008 3464  1440 1443 1453 1493 -hsync +vsync
+xrandr --addmode DFP1 2552x1440_60.00
+xrandr --output DFP1 --mode 2552x1440_60.00
+
+export UNITY_LOW_GFX_MODE=1
+export JAVA_HOME=$HOME/Downloads/software/jdk1.7.0_45
