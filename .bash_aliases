@@ -46,11 +46,6 @@ fi
 
 alias smth='mylogin smth'
 
-# Show diff of a specific commit
-gitlog () {
-    git log --stat "$1^".."$1";
-}
-
 ###
 # From rex zhang
 ###
