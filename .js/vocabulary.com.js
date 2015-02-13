@@ -12,3 +12,4 @@ function rm() {
 
 // Fix after the progress guage is displayed.
 setTimeout(rm, 3000);
+$(document).click(rm);
