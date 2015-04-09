@@ -2,6 +2,11 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Start boot2docker
+if [ "$(boot2docker status)" != running ]; then
+    boot2docker start &
+fi
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -235,4 +240,5 @@ export LS_COLORS
 export PYTHONSTARTUP=~/.pythonrc
 
 # Set up the Docker client.
+wait  # for boot2docker daemon to start
 $(boot2docker shellinit 2>/dev/null)
