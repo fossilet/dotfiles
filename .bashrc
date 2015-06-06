@@ -248,3 +248,6 @@ export PYTHONSTARTUP=~/.pythonrc
 # Set up the Docker client.
 wait  # for boot2docker daemon to start
 [ $docker_installed = true ] && $(boot2docker shellinit 2>/dev/null)
+
+# Use authenticated API token for brew for high limit.
+export HOMEBREW_GITHUB_API_TOKEN=8b992d567ba1bafad156031c038a80b7bb31feda
