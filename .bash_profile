@@ -4,8 +4,15 @@
 
 # https://superuser.com/q/267771
 # Put first to ensure the signal handler is set up before sending the signal.
+
 brew_path=$(which brew)
-[[ -x $brew_path ]] && trap 'source $(brew --prefix)/etc/bash_completion; trap USR1' USR1
+if [[ -x $brew_path ]]; then
+    export brew_installed=true
+else
+    export brew_installed=false
+fi
+
+[ $brew_installed = true ] && trap 'source $(brew --prefix)/etc/bash_completion; trap USR1' USR1
 
 # Brew takes precedence.
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
