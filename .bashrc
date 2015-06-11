@@ -3,7 +3,7 @@
 # for examples
 
 boot2docker_path=$(which boot2docker)
-if [ -x $boot2docker_path ]; then
+if [[ -x $boot2docker_path ]]; then
     docker_installed=true
 else
     docker_installed=false

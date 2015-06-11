@@ -5,7 +5,7 @@
 # https://superuser.com/q/267771
 # Put first to ensure the signal handler is set up before sending the signal.
 brew_path=$(which brew)
-[ -x $brew_path ] && trap 'source $(brew --prefix)/share/bash-completion/bash_completion; trap USR1' USR1
+[[ -x $brew_path ]] && trap 'source $(brew --prefix)/etc/bash_completion; trap USR1' USR1
 
 # Brew takes precedence.
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
