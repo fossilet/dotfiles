@@ -2,7 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-if [ -x boot2docker ]; then
+boot2docker_path=$(which boot2docker)
+if [ -x $boot2docker_path ]; then
     docker_installed=true
 else
     docker_installed=false

@@ -4,7 +4,8 @@
 
 # https://superuser.com/q/267771
 # Put first to ensure the signal handler is set up before sending the signal.
-[ -x brew ] && trap 'source $(brew --prefix)/share/bash-completion/bash_completion; trap USR1' USR1
+brew_path=$(which brew)
+[ -x $brew_path ] && trap 'source $(brew --prefix)/share/bash-completion/bash_completion; trap USR1' USR1
 
 # Brew takes precedence.
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
@@ -21,4 +22,4 @@ if [[ -r ~/.bashrc ]]; then
     . ~/.bashrc
 fi
 
-[ -x brew ] && builtin kill -USR1 $$ & disown
+[ -x $brew_path ] && builtin kill -USR1 $$ & disown
