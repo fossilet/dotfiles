@@ -12,7 +12,7 @@ else
     export brew_installed=false
 fi
 
-[ $brew_installed = true ] && trap 'source $(brew --prefix)/etc/bash_completion; trap USR1' USR1
+[ $brew_installed = true ] && trap 'source $(brew --prefix)/share/bash-completion/bash_completion; trap USR1' USR1
 
 # Brew takes precedence.
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
