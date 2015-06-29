@@ -88,9 +88,6 @@ alias now='date "+%Y-%m-%d %H:%M"'
 alias upper='tr /a-z/ /A-Z/'
 alias lower='tr /A-Z/ /a-z/'
 
-# Go to directories
-alias djsrc='cd /usr/local/lib/python2.7/dist-packages/django'
-
 # htop is better than top
 alias top='htop'
 alias grep='ack-grep'
