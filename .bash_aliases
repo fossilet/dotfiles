@@ -103,3 +103,6 @@ alias sl='ls'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+
+# Reomve /usr/local/bin from PATH, use only Apple shipped Python.
+alias jhbuild="export PATH=/Users/tux/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin; ~/.local/bin/jhbuild"
