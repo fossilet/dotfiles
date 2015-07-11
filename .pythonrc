@@ -1,8 +1,13 @@
-# vim: set ft=python: 
+# vim: set ft=python:
 """
 Python rc file.
 
+Set as PYTHONSTARTUP environment variable for interactive sessions only.
+
 Thu Apr 24 12:15:26 CST 2014
 """
+
+import sys
+sys.path.insert(0, '/Users/tux/gtk/inst/lib/python2.7/site-packages')
 
 print('hello python')
