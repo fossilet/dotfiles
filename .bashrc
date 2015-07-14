@@ -119,7 +119,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # Custom lines
-source ~/dropbox/dotfiles/.settings_priv
+source ~/Copy/dotfiles/.settings_priv
 
 # ignore small typos in directory names in interactive cd command
 shopt -s cdspell
