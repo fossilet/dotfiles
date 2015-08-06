@@ -21,3 +21,5 @@ cgitb.enable(format='text')
 
 sys.path.insert(0, os.path.join(os.environ['HOME'],
         'gtk/inst/lib/python2.7/site-packages'))
+sys.path.append(os.path.join(os.environ['HOME'],
+        'programming/py3k'))
