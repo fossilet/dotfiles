@@ -11,7 +11,8 @@ fi
 
 # Start boot2docker
 if [ $docker_installed = true ]; then
-    [ "$(boot2docker status)" != running ] && boot2docker start &
+    true
+    #[ "$(boot2docker status)" != running ] && boot2docker start &
 fi
 
 # If not running interactively, don't do anything
@@ -249,4 +250,4 @@ export PYTHONSTARTUP=~/.pythonrc
 
 # Set up the Docker client.
 wait  # for boot2docker daemon to start
-[ $docker_installed = true ] && $(boot2docker shellinit 2>/dev/null)
+#[ $docker_installed = true ] && $(boot2docker shellinit 2>/dev/null)
