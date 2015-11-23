@@ -196,7 +196,7 @@ _mylogin() {
     args="$(get_hostnames.py)"
     COMPREPLY=( "${COMPREPLY[@]}" $( compgen -W "${args}" -- "${cur}" ) )
 }
-complete -F _mylogin mylogin
+#complete -F _mylogin mylogin
 
 # Do not use French LC_NUMERIC and LC_CTYPE.
 # https://docs.google.com/document/d/1g7wAT7gd2VijoXzqgwUUPyTo1NFkxPzaq7b1NlgvPUU/edit#heading=h.t1zedia9sx4w
