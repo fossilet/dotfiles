@@ -28,6 +28,9 @@ alias no='ls'
 
 if [[ $OS = 'Darwin' ]]; then
     alias o='open'
+
+    # SHA tools
+    alias sha256sum='shasum -a256'
 else
     alias o='xdg-open'
 fi
