@@ -11,6 +11,8 @@ Thu Apr 24 12:15:26 CST 2014
 """
 
 import sys
-sys.path.insert(0, '/Users/tux/gtk/inst/lib/python2.7/site-packages')
+import os
 
-print('hello python')
+sys.path.insert(0, '/Users/tux/gtk/inst/lib/python2.7/site-packages')
+print()
+os.system('fortune')
