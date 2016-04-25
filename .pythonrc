@@ -10,6 +10,7 @@ PYTHONSTARTUP is set in ~/.bashrc.
 Thu Apr 24 12:15:26 CST 2014
 """
 
+from __future__ import print_function
 import sys
 import os
 
