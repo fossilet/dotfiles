@@ -2,7 +2,10 @@
 """
 Python rc file.
 
-Set as PYTHONSTARTUP environment variable for interactive sessions only.
+Set as PYTHONSTARTUP environment variable for interactive sessions only. For
+more info, man python.
+
+PYTHONSTARTUP is set in ~/.bashrc.
 
 Thu Apr 24 12:15:26 CST 2014
 """
