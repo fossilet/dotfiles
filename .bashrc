@@ -137,7 +137,7 @@ bgjobs='(\j)'
 exit_status='$(es=$?; if [ $es -ne 0 ]; then echo [$es]; fi)'
 # XXX: exit_status must be put before $gitbr, otherwise $? is git's exit
 # status
-PS1="$user_host""$cwd""$exit_status""$gitbr""$bgjobs""\$ "
+PS1="$user_host""$cwd""$bgjobs""$exit_status""$gitbr""\$ "
 
 
 # Customization on Neverland
