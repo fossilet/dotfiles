@@ -13,7 +13,19 @@ Thu Apr 24 12:15:26 CST 2014
 from __future__ import print_function
 import sys
 import os
+import random
 
 sys.path.insert(0, '/Users/tux/gtk/inst/lib/python2.7/site-packages')
 print()
-os.system('fortune')
+#os.system('fortune')
+
+line_range=(4, 231)
+
+
+def fortune(corpus):
+    """My forturne."""
+    with open(corpus) as f:
+        lineno = random.randrange(*line_range)
+        print(f.readlines()[lineno])
+
+fortune('/Users/tux/MEGA/dotfiles/idioms')
