@@ -23,8 +23,6 @@ set encoding=utf8
 set fileencodings=ucs-bom,utf8,cp936,big5
 " This enables automatic indentation as you type.
 filetype plugin indent on
-" Font for displaying file
-set guifont=Courier\ New\ 10
 " show line numbers
 set number
 " Search as i type
@@ -52,6 +50,9 @@ if (has("gui_running"))
     set lines=32
     set columns=80
     winpos 0 40
+    " https://github.com/tonsky/FiraCode/wiki/MacVim-instructions
+    set macligatures
+    set guifont=Fira\ Code:h12
 endif
 " always display the status line
 set laststatus=2
