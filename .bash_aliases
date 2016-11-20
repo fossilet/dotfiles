@@ -22,7 +22,6 @@ alias ags='sudo apt-get source'
 alias ap='sudo aptitude'
 alias mysql='mysql --sigint-ignore'
 alias n='nautilus'
-alias no='ls'
 
 if [[ $OS = 'Darwin' ]]; then
     alias o='open'
@@ -38,8 +37,9 @@ alias diff='diff -u'
 # alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 
 if [[ $(uname -s) = "Darwin" ]]; then
-    alias ls='ls -G'
-    true
+    alias ls='gls --color=auto'
+    #alias ls='ls -G'
+    #true
 else
     alias pbcopy='xclip -selection clipboard'
     alias pbpaste='xclip -selection clipboard -o'
