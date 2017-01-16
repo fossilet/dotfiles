@@ -58,8 +58,8 @@ endif
 set laststatus=2
 " display the line and column number of the cursor position
 set ruler
-" pasting to other X apps doesn't require prefixing "*
-"set clipboard+=unnamed
+" pasting to other X/macOS apps doesn't require prefixing "*
+set clipboard=unnamed
 " enable filetype plugins
 filetype plugin on
 " enable mouse in xterm
@@ -138,9 +138,6 @@ set colorcolumn =+1
 highlight ExtraWhitespace ctermbg=grey guibg=red
 " Highlight trailing spaces, tabs
 match ExtraWhitespace /\s\+$\|\t/
-
-" Share with X clipboard
-set clipboard=unnamed
 
 " No swap file in current file.
 set dir=~/.tmp

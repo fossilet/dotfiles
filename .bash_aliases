@@ -12,7 +12,6 @@ alias .....='cd ../../../..'
 # This will ensure that Vim in Homebrew is invoked rather than the
 # less featureful Vi in OS X.
 alias vi='\vim'
-alias vim='gvim'
 
 alias acs='apt-cache search'
 alias acshow='apt-cache show'
@@ -37,7 +36,7 @@ alias diff='diff -u'
 # alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 
 if [[ $(uname -s) = "Darwin" ]]; then
-    alias ls='gls --color=auto'
+    alias ls='/usr/local/bin/gls --color=auto'
     #alias ls='ls -G'
     #true
 else
@@ -107,3 +106,8 @@ alias egrep='egrep --color=auto'
 
 # Reomve /usr/local/bin from PATH, use only Apple shipped Python.
 alias jhbuild="export PATH=/Users/tux/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin; ~/.local/bin/jhbuild"
+
+alias st='stree'
+# Toggle automatic margins (line wrapping)
+alias wrapon='tput smam'
+alias wrapoff='tput rmam'

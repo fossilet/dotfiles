@@ -244,7 +244,7 @@ export GOPATH=/Users/tux/Downloads/code/goworkspace
 export PATH="$HOME/bin:$PATH:/usr/local/share/pypy:$GOPATH/bin"
 
 # For GNU ls color. Verbatim output of dircolors on Ubuntu 12.04
-eval $(gdircolors)
+eval $(/usr/local/bin/gdircolors)
 
 export PYTHONSTARTUP=~/.pythonrc
 
