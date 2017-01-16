@@ -18,7 +18,7 @@ fi
 [ $brew_installed = true ] && trap 'source $(brew --prefix)/share/bash-completion/bash_completion; trap USR1' USR1
 
 # Brew takes precedence.
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=/usr/local/sbin:$PATH
 
 # Suggested by brew info bash-completion, but is slow for bash-completion
 # version 1. For version 2, the delay is innoticeable.
