@@ -2,7 +2,7 @@
 [user]
 	name = Yongzhi Pan
 	signingkey = 9A061E08
-	email = panyongzhi@gmail.com
+	email =
 [alias]
 	co = checkout
 	br = branch
@@ -20,7 +20,7 @@
 [core]
 	excludesfile = /Users/tux/.gitignore_global
 	name = Yongzhi Pan
-	page = 
+	page =
 	pager = less -r
 [push]
 	default = current

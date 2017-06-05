@@ -1,4 +1,5 @@
 # vim: set ft=python:
+# encoding: utf-8
 """
 Python rc file.
 
@@ -28,4 +29,5 @@ def fortune(corpus):
         lineno = random.randrange(*line_range)
         print(f.readlines()[lineno])
 
+# FIXME: 要强制换行文本，否则窄窗口下看不全。
 fortune('/Users/tux/MEGA/dotfiles/idioms')

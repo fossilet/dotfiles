@@ -44,12 +44,10 @@ set modelines=5
 " search in a singe file. This will confuse latex-suite. Set your grep
 " program to alway generate a file-name.
 set grepprg=grep\ -nH\ $*
-" lines and cos and window position
+
+" GUI
 if (has("gui_running"))
     colorscheme peachpuff
-    set lines=32
-    set columns=80
-    winpos 0 40
     " https://github.com/tonsky/FiraCode/wiki/MacVim-instructions
     set macligatures
     set guifont=Fira\ Code:h12
@@ -146,3 +144,6 @@ set dir=~/.tmp
 set noimdisable
 autocmd! InsertLeave * set imdisable|set iminsert=0
 autocmd! InsertEnter * set noimdisable|set iminsert=0
+
+let g:nerdtree_tabs_open_on_console_startup = 1
+let vim_markdown_preview_github = 1

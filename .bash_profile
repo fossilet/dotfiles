@@ -33,7 +33,3 @@ if [[ -r ~/.bashrc ]]; then
 fi
 
 [ -x $brew_path ] && builtin kill -USR1 $$ & disown
-
-if brew command command-not-found-init > /dev/null 2>&1; then
-    eval "$(brew command-not-found-init)";
-fi

@@ -19,6 +19,8 @@ alias agi='sudo apt-get install'
 alias agr='sudo apt-get remove'
 alias ags='sudo apt-get source'
 alias ap='sudo aptitude'
+alias grep='ag'
+alias git='hub'
 alias mysql='mysql --sigint-ignore'
 alias n='nautilus'
 

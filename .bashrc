@@ -2,19 +2,6 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-boot2docker_path=$(which boot2docker)
-if [[ -x $boot2docker_path ]]; then
-    docker_installed=true
-else
-    docker_installed=false
-fi
-
-# Start boot2docker
-if [ $docker_installed = true ]; then
-    true
-    #[ "$(boot2docker status)" != running ] && boot2docker start &
-fi
-
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -119,6 +106,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+
 # Custom lines
 source ~/MEGA/dotfiles/.settings_priv
 
@@ -126,7 +114,7 @@ source ~/MEGA/dotfiles/.settings_priv
 shopt -s cdspell
 
 # For prompt
-git_branch () { 
+git_branch () {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' -e 's/((/(/' -e 's/))/)/'
 }
 user_host='\[\033[01;32m\]\u@\h\[\033[00m\]:'
@@ -144,7 +132,6 @@ PS1="$user_host""$cwd""$bgjobs""$exit_status""$gitbr""\$ "
 
 shopt -s histverify
 #shopt -s nullglob
-#export LANG=en_US.utf8
 export PS_PERSONALITY=bsd
 
 
@@ -198,11 +185,6 @@ _mylogin() {
 }
 #complete -F _mylogin mylogin
 
-# Do not use French LC_NUMERIC and LC_CTYPE.
-# https://docs.google.com/document/d/1g7wAT7gd2VijoXzqgwUUPyTo1NFkxPzaq7b1NlgvPUU/edit#heading=h.t1zedia9sx4w
-export LC_CTYPE="en_US.UTF-8"
-export LC_NUMERIC="en_US.UTF-8"
-
 # Debian maintainer
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 complete -F _quilt_completion $_quilt_complete_opt dquilt
@@ -210,28 +192,6 @@ complete -F _quilt_completion $_quilt_complete_opt dquilt
 # Better less
 # XXX: if we set PAGER here, less in IPython will mess ANSI colors.
 # export PAGER='less -i'  # case-insensitive search
-
-
-# For coreutils on OSX
-#PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-#MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-
-# For OSX.
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US:en
-export LC_CTYPE=en_US.UTF-8
-export LC_NUMERIC=en_US.UTF-8
-export LC_TIME="en_US.UTF-8"
-export LC_COLLATE="en_US.UTF-8"
-export LC_MONETARY="en_US.UTF-8"
-export LC_MESSAGES="en_US.UTF-8"
-export LC_PAPER="en_US.UTF-8"
-export LC_NAME="en_US.UTF-8"
-export LC_ADDRESS="en_US.UTF-8"
-export LC_TELEPHONE="en_US.UTF-8"
-export LC_MEASUREMENT="en_US.UTF-8"
-export LC_IDENTIFICATION="en_US.UTF-8"
-export LC_ALL=
 
 # Determine OS.
 if [[ $(uname -s) = 'Darwin' ]]; then
@@ -244,10 +204,8 @@ export GOPATH=/Users/tux/Downloads/code/goworkspace
 export PATH="$HOME/bin:$HOME/bin/vault:$PATH:/usr/local/share/pypy:$GOPATH/bin"
 
 # For GNU ls color. Verbatim output of dircolors on Ubuntu 12.04
-eval $(/usr/local/bin/gdircolors)
+eval "$(/usr/local/bin/gdircolors)"
 
 export PYTHONSTARTUP=~/.pythonrc
 
-# Set up the Docker client.
-wait  # for boot2docker daemon to start
-#[ $docker_installed = true ] && $(boot2docker shellinit 2>/dev/null)
+export JAVA_HOME="$(/usr/libexec/java_home)"
