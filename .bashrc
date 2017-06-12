@@ -209,3 +209,4 @@ eval "$(/usr/local/bin/gdircolors)"
 export PYTHONSTARTUP=~/.pythonrc
 
 export JAVA_HOME="$(/usr/libexec/java_home)"
+export HOMEBREW_NO_AUTO_UPDATE=1
