@@ -47,3 +47,5 @@
 [diff]
 	mnemonicprefix = true
 	algorithm = histogram
+[credential]
+	helper = osxkeychain
