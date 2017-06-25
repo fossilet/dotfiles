@@ -3,12 +3,14 @@
 " Use echo for debugging, e.g. echo &modelines.
 " Since 2007
 
-" Pathogen
+
+"""""" Pathogen
 " XXX: It will not work properly if put at last.
 execute pathogen#infect()
 call pathogen#helptags()
 
-" Basic
+
+""""""" Basic
 " =========================
 "
 " Ingore case
@@ -87,7 +89,7 @@ set autochdir
 "set foldmethod=indent
 
 
-" Advanced
+"""""" Advanced
 " ========================
 "
 " tab switch windows
