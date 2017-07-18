@@ -148,4 +148,7 @@ autocmd! InsertLeave * set imdisable|set iminsert=0
 autocmd! InsertEnter * set noimdisable|set iminsert=0
 
 let g:nerdtree_tabs_open_on_console_startup = 1
+" GitHub flavor markdown
 let vim_markdown_preview_github = 1
+" Display images: https://github.com/JamshedVesuna/vim-markdown-preview
+let vim_markdown_preview_toggle = 1
