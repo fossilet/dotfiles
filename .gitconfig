@@ -31,7 +31,6 @@
 [merge]
 	tool = gvimdiff
 [pull]
-	rebase = false
 	ff = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -44,8 +43,12 @@
 	trustExitCode = true
 [rerere]
 	enable = true
+	enabled = true
 [diff]
 	mnemonicprefix = true
 	algorithm = histogram
 [credential]
 	helper = osxkeychain
+[branch]
+[fetch]
+	prune = true

@@ -46,6 +46,9 @@ else
     alias pbpaste='xclip -selection clipboard -o'
 fi
 
+alias lt='ls -lt'
+alias lh='ls -lh'
+
 alias smth='mylogin smth'
 
 ###
