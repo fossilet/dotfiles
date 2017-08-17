@@ -13,21 +13,18 @@ Thu Apr 24 12:15:26 CST 2014
 
 from __future__ import print_function
 import sys
-import os
 import random
 
 sys.path.insert(0, '/Users/tux/gtk/inst/lib/python2.7/site-packages')
-print()
-#os.system('fortune')
-
-line_range=(4, 231)
 
 
-def fortune(corpus):
+def fortune(corpus, line_range):
     """My forturne."""
     with open(corpus) as f:
         lineno = random.randrange(*line_range)
         print(f.readlines()[lineno])
 
-# FIXME: 要强制换行文本，否则窄窗口下看不全。
-fortune('/Users/tux/MEGA/dotfiles/idioms')
+
+# FIXME: 要强制换行文本，否则窄窗口下看不全。偶尔发生，原因未知。
+print()
+fortune('/Users/tux/MEGA/dotfiles/idioms', line_range=(4, 231))
