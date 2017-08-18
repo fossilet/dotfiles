@@ -1,0 +1,5 @@
+# Since 2017年 8月18日 星期五 18时55分44秒 CST
+
+# https://unix.stackexchange.com/a/40246/17572
+# Enable mouse scrolling and scroll bar history scrolling
+termcapinfo xterm* ti@:te@
