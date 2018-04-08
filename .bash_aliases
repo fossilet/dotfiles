@@ -117,18 +117,16 @@ alias kc=kubectl
 
 # Functions
 mycd () {
-    if [ -z "$1" ]; then
-        \cd
-    elif [ -d "$1" ]; then
-        \cd "$*"
+    if [ -a "$1" ] && [ ! -d "$1" ]; then
+        builtin cd "$(dirname "$(realpath "$1")")"
     else
-        \cd "$(dirname $(realpath "$1"))"
+        builtin cd "$*"
     fi
 }
 alias cd='mycd'
 
 myldapsearch() {
-    ldapsearch $* | perl -MMIME::Base64 -n -00 -e \
+    ldapsearch "$*" | perl -MMIME::Base64 -n -00 -e \
         's/\n +//g;s/(?<=:: )(\S+)/decode_base64($1)/eg;print'
 }
 alias ldapsearch=myldapsearch
