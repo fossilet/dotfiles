@@ -1,3 +1,16 @@
-# 2017年 6月12日 星期一 18时30分42秒 CST
+# Since 2017年 6月12日 星期一 18时30分42秒 CST
+
 SHELL=/usr/local/bin/bash
-30 10 * * * /usr/local/bin/brew update &>> /tmp/cron.log &
+# Default PATH is: PATH=/usr/bin:/bin
+PATH=/Users/tux/bin:/Users/tux/bin/vault:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/opt/X11/bin:/Applications/Server.app/Contents/ServerRoot/usr/bin:/Applications/Server.app/Contents/ServerRoot/usr/sbin:/usr/local/share/pypy:/Users/tux/Downloads/code/goworkspace/bin
+# For find-vpn.py
+LANG=zh_CN.UTF-8
+
+# min hour dow dom month
+30 12 * * * @AppleNotOnBattery update-routes
+30 10 * * * @AppleNotOnBattery brew update &>>/tmp/cron.log
+# FIXME: Should exit if find-vpn.py is running.
+00 12 * * * @AppleNotOnBattery curl -o ~/MEGA/Documents/IT/purevpn-hosts.html https://support.purevpn.com/vpn-servers 2>>/tmp/cron.log
+# */1 for debug, 5 for normal
+#*/1 * * * * @AppleNotOnBattery find-vpn.py >/tmp/best-vpn.txt 2>/tmp/best-vpn.txt.err
+*/30 * * * * @AppleNotOnBattery find-vpn.py >/tmp/best-vpn.txt 2>/tmp/best-vpn.txt.err

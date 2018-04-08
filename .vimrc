@@ -23,15 +23,18 @@ Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
+"" Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
-Plugin 'file:///home/gmarik/path/to/plugin'
+"" Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+""Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
+""Plugin 'Valloric/YouCompleteMe'
+Plugin 'chr4/nginx.vim'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -83,6 +86,8 @@ set modeline
 " This should be the default but is zero for me. It may have been overridden by
 " other configurations. Reset here.
 set modelines=5
+" FIXME: not working
+set langmenu=zh_CN.UTF-8
 
 " Intermediate
 " =========================
@@ -166,12 +171,14 @@ augroup filetypedetect
     autocmd BufNewFile,BufRead *.wiki set ft=googlecodewiki
 
     autocmd FileType python,make setlocal textwidth=79
+    autocmd FileType python set wrap
     autocmd FileType text setlocal textwidth=79
 
     autocmd FileType html set shiftwidth=2
     autocmd FileType xhtml set shiftwidth=2
     " autocmd FileType html set tabwidth=2
 augroup END
+au BufRead,BufNewFile keepalived.conf setlocal ft=keepalived
 "set paste
 "
 set smartindent " FIXME: What's this?
@@ -179,10 +186,11 @@ set textwidth=79
 " Highlight the column after textwidth
 set colorcolumn =+1
 
-" Set highlight theme
-highlight ExtraWhitespace ctermbg=grey guibg=red
-" Highlight trailing spaces, tabs
-match ExtraWhitespace /\s\+$\|\t/
+" Highlight trailing spaces and tabs
+autocmd FileType * highlight ExtraWhitespace ctermbg=grey guibg=grey
+autocmd FileType * match ExtraWhitespace /\s\+$/
+" FIXME: should highlight tab for Python: /\s\+$\|\t/, or do not highlight tab
+" for go and makefile.
 
 " No swap file in current file.
 set dir=~/.tmp
@@ -197,3 +205,9 @@ let g:nerdtree_tabs_open_on_console_startup = 1
 let vim_markdown_preview_github = 1
 " Display images: https://github.com/JamshedVesuna/vim-markdown-preview
 let vim_markdown_preview_toggle = 1
+let NERDTreeIgnore = ['\.pyc$', '\.jpg$']
+
+" For crontab in-place editing
+autocmd filetype crontab setlocal nobackup nowritebackup
+
+" let g:pymode_python = 'python3'

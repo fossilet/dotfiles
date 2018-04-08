@@ -13,38 +13,33 @@ alias .....='cd ../../../..'
 # less featureful Vi in OS X.
 alias vi='\vim'
 
-alias acs='apt-cache search'
-alias acshow='apt-cache show'
-alias agi='sudo apt-get install'
-alias agr='sudo apt-get remove'
-alias ags='sudo apt-get source'
-alias ap='sudo aptitude'
-alias grep='ag'
 alias git='hub'
 alias mysql='mysql --sigint-ignore'
 alias n='nautilus'
+alias ag='rg -L'
+alias sed='gsed'
 
 if [[ $OS = 'Darwin' ]]; then
     alias o='open'
     alias sha256sum='shasum -a256'
     alias md5sum='md5'
-else
+    alias ls='/usr/local/bin/gls --color=auto'
+else  # Linux
     alias o='xdg-open'
+    alias acs='apt-cache search'
+    alias acshow='apt-cache show'
+    alias agi='sudo apt-get install'
+    alias agr='sudo apt-get remove'
+    alias ags='sudo apt-get source'
+    alias ap='sudo aptitude'
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
+    # alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 fi
 
 alias sudo='sudo '
 alias diff='diff -u'
 
-# alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
-
-if [[ $(uname -s) = "Darwin" ]]; then
-    alias ls='/usr/local/bin/gls --color=auto'
-    #alias ls='ls -G'
-    #true
-else
-    alias pbcopy='xclip -selection clipboard'
-    alias pbpaste='xclip -selection clipboard -o'
-fi
 
 alias lt='ls -lt'
 alias lh='ls -lh'
@@ -116,3 +111,24 @@ alias st='stree'
 # Toggle automatic margins (line wrapping)
 alias wrapon='tput smam'
 alias wrapoff='tput rmam'
+
+alias kc=kubectl
+
+
+# Functions
+mycd () {
+    if [ -z "$1" ]; then
+        \cd
+    elif [ -d "$1" ]; then
+        \cd "$*"
+    else
+        \cd "$(dirname $(realpath "$1"))"
+    fi
+}
+alias cd='mycd'
+
+myldapsearch() {
+    ldapsearch $* | perl -MMIME::Base64 -n -00 -e \
+        's/\n +//g;s/(?<=:: )(\S+)/decode_base64($1)/eg;print'
+}
+alias ldapsearch=myldapsearch

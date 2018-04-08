@@ -7,7 +7,7 @@
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoreboth
+HISTCONTROL=ignorespace
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -15,6 +15,7 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=10000
 HISTFILESIZE=10000
+HISTTIMEFORMAT="%F %T  "
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -201,3 +202,12 @@ export PYTHONSTARTUP=~/.pythonrc
 
 export JAVA_HOME="$(/usr/libexec/java_home)"
 export HOMEBREW_NO_AUTO_UPDATE=1
+
+# virtualenvwarpper
+export WORKON_HOME=$HOME/.venv
+export PROJECT_HOME=$HOME/programming/py3k
+source /usr/local/bin/virtualenvwrapper_lazy.sh
+
+# For readline edit-and-execute-command (C-x C-e)
+export VISUAL=vim
+export EDITOR=vim
