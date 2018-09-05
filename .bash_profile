@@ -27,3 +27,4 @@ if [[ -r ~/.bashrc ]]; then
     . ~/.bashrc
 fi
 wait
+export PATH="/usr/local/opt/gettext/bin:$PATH"
