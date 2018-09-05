@@ -119,6 +119,8 @@ alias kc=kubectl
 mycd () {
     if [ -a "$1" ] && [ ! -d "$1" ]; then
         builtin cd "$(dirname "$(realpath "$1")")"
+    elif [ -z "$1" ]; then
+        builtin cd
     else
         builtin cd "$*"
     fi

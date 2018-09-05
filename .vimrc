@@ -2,7 +2,7 @@
 "
 " Use echo for debugging, e.g. echo &modelines.
 " Since 2007
-"
+
 """"" Vundle
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -32,7 +32,7 @@ Plugin 'tpope/vim-fugitive'
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
-""Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'chr4/nginx.vim'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
@@ -200,14 +200,19 @@ set noimdisable
 autocmd! InsertLeave * set imdisable|set iminsert=0
 autocmd! InsertEnter * set noimdisable|set iminsert=0
 
-let g:nerdtree_tabs_open_on_console_startup = 1
 " GitHub flavor markdown
 let vim_markdown_preview_github = 1
 " Display images: https://github.com/JamshedVesuna/vim-markdown-preview
 let vim_markdown_preview_toggle = 1
-let NERDTreeIgnore = ['\.pyc$', '\.jpg$']
 
 " For crontab in-place editing
 autocmd filetype crontab setlocal nobackup nowritebackup
 
-" let g:pymode_python = 'python3'
+let g:pymode_python = 'python3'
+
+" NerdTree
+" https://stackoverflow.com/a/24809018/547578
+autocmd vimenter * NERDTree | wincmd p
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeIgnore = ['\.pyc$', '\.jpg$']
+"let g:nerdtree_tabs_open_on_console_startup = 1
