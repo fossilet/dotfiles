@@ -5,3 +5,8 @@
 set completion-ignore-case on
 set mark-directories on
 set mark-symlinked-directories on
+
+# https://youtrack.jetbrains.com/issue/IDEA-165184#focus=streamItem-27-1955537-0-0
+"ƒ": forward-word
+"∫": backward-word
+"≥": yank-last-arg
