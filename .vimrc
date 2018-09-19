@@ -55,7 +55,6 @@ filetype plugin indent on    " required
 """""" Pathogen
 " XXX: It will not work properly if put at last.
 execute pathogen#infect()
-call pathogen#helptags()
 
 
 """"""" Basic
@@ -194,6 +193,9 @@ autocmd FileType * match ExtraWhitespace /\s\+$/
 
 " No swap file in current file.
 set dir=~/.tmp
+" https://stackoverflow.com/a/3476411/547578
+tab sball
+set switchbuf=usetab,newtab
 
 " Disable IME in command mode: http://zh.undozen.com/2013/14
 set noimdisable
@@ -215,4 +217,6 @@ let g:pymode_python = 'python3'
 autocmd vimenter * NERDTree | wincmd p
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeIgnore = ['\.pyc$', '\.jpg$']
-"let g:nerdtree_tabs_open_on_console_startup = 1
+" https://github.com/jistr/vim-nerdtree-tabs
+let g:nerdtree_tabs_open_on_console_startup = 1
+let g:nerdtree_tabs_open_on_new_tab = 1
