@@ -15,8 +15,6 @@ from __future__ import print_function
 import sys
 import random
 
-sys.path.insert(0, '/Users/tux/gtk/inst/lib/python2.7/site-packages')
-
 
 def fortune(corpus, line_range):
     """My forturne."""
@@ -27,4 +25,5 @@ def fortune(corpus, line_range):
 
 # FIXME: 要强制换行文本，否则窄窗口下看不全。偶尔发生，原因未知。
 print()
-fortune('/Users/tux/MEGA/dotfiles/idioms', line_range=(4, 231))
+fortune('/Users/tux/Documents/programming/dotfiles/idioms',
+        line_range=(4, 231))

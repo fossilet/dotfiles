@@ -32,7 +32,7 @@ Plugin 'tpope/vim-fugitive'
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'chr4/nginx.vim'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
@@ -96,13 +96,6 @@ set langmenu=zh_CN.UTF-8
 " program to alway generate a file-name.
 set grepprg=grep\ -nH\ $*
 
-" GUI
-if (has("gui_running"))
-    colorscheme peachpuff
-    " https://github.com/tonsky/FiraCode/wiki/MacVim-instructions
-    set macligatures
-    set guifont=Fira\ Code:h12
-endif
 " always display the status line
 set laststatus=2
 " display the line and column number of the cursor position
@@ -131,7 +124,16 @@ endif
 " The default color theme of Terminal.app on OSX has one kink - highlight is
 " not conspicuous, like Vim search and Git commit message highlight. Use an
 " alternative Vim colorscheme to work around it.
-colorscheme peachpuff
+" GUI
+if (has("gui_running"))
+    colorscheme evening
+    " https://github.com/tonsky/FiraCode/wiki/MacVim-instructions
+    set macligatures
+    set guifont=Fira\ Code:h13
+else
+    " Orange background
+    colorscheme peachpuff
+endif
 
 " enable spelling checking
 set autochdir
@@ -220,3 +222,4 @@ let NERDTreeIgnore = ['\.pyc$', '\.jpg$']
 " https://github.com/jistr/vim-nerdtree-tabs
 let g:nerdtree_tabs_open_on_console_startup = 1
 let g:nerdtree_tabs_open_on_new_tab = 1
+let g:NERDTreeWinSize=20
