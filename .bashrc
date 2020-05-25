@@ -124,17 +124,22 @@ shopt -s cdspell
 
 # For prompt
 git_branch () {
-    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' -e 's/((/(/' -e 's/))/)/'
+    git branch --no-color 2>/dev/null | sed -e '/^[^*]/d; s/* \(.*\)/(\1)/; s/((/(/; s/))/)/'
+}
+git_stash () {
+    n=$(git stash list 2>/dev/null | wc -l | sed 's/\s\+//g')
+    if [[ $n > 0 ]]; then echo -n $n; fi
 }
 user_host='\[\033[01;32m\]\u\[\033[00m\]:'
 cwd='\[\033[01;34m\]\w\[\033[00m\]'
 # Must use single quote here
 gitbr='\[\033[01;35m\]$(git_branch)\[\033[00m\]'
+gitstash='\[\033[01;34m\]$(git_stash)\[\033[00m\]'
 bgjobs='(\j)'
 exit_status='$(es=$?; if [ $es -ne 0 ]; then echo [$es]; fi)'
 # XXX: exit_status must be put before $gitbr, otherwise $? is git's exit
 # status
-PS1="$user_host""$cwd""$bgjobs""$exit_status""$gitbr""\$ "
+PS1="$user_host""$cwd""$bgjobs""$exit_status""$gitbr""$gitstash""\$ "
 
 
 # Customization on Neverland
