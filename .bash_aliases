@@ -45,6 +45,7 @@ alias diff='diff -u'
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
+alias lt='ls -t'
 
 ###
 # From rex zhang

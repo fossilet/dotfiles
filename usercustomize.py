@@ -13,13 +13,6 @@ Sun May  4 18:06:08 CST 2014
 """
 
 import cgitb
-import sys
 import os
-import os.path
 
 cgitb.enable(format='text')
-
-sys.path.insert(0, os.path.join(os.environ['HOME'],
-        'gtk/inst/lib/python2.7/site-packages'))
-sys.path.append(os.path.join(os.environ['HOME'],
-        'programming/py3k'))

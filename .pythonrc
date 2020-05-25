@@ -12,7 +12,10 @@ Thu Apr 24 12:15:26 CST 2014
 """
 
 from __future__ import print_function
-import sys
+
+import glob
+import json
+import os
 import random
 
 
@@ -22,8 +25,21 @@ def fortune(corpus, line_range):
         lineno = random.randrange(*line_range)
         print(f.readlines()[lineno])
 
-
 # FIXME: 要强制换行文本，否则窄窗口下看不全。偶尔发生，原因未知。
-print()
-fortune('/Users/tux/Documents/programming/dotfiles/idioms',
-        line_range=(4, 231))
+# print()
+# fortune('/Users/tux/Documents/programming/dotfiles/idioms',
+#         line_range=(4, 231))
+
+def rand_poet():
+    os.chdir('/Users/tux/Documents/programming/chinese-poetry/json')
+    poet = random.choice(
+        json.load(open(random.choice(glob.glob('poet.*.*.json')))))
+    paras = poet['paragraphs']
+    ml = max(len(p) for p in paras)
+    print(poet['title'].center(ml, '—'))
+    print(poet['author'].center(ml, '　'))
+    print('\n'.join(paras))
+    os.chdir(os.path.expanduser('~'))
+
+
+rand_poet()

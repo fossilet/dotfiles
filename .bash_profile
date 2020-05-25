@@ -9,8 +9,6 @@
 export brew_installed
 brew_installed=$(test -x "$(which brew)")
 
-# Brew takes precedence.
-export PATH=/usr/local/sbin:$PATH
 
 # FIXME: too slow: https://superuser.com/a/418112/79465
 
@@ -18,8 +16,7 @@ export PATH=/usr/local/sbin:$PATH
      . $(brew --prefix)/share/bash-completion/bash_completion
  fi
 
-. ~/.minikube-completion
-
+#[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 # This file is only sourced for login shell, and on OSX the terminal opens a
 # login shell by default. Thus we need to source .bashrc here.
@@ -27,4 +24,9 @@ if [[ -r ~/.bashrc ]]; then
     . ~/.bashrc
 fi
 wait
-export PATH="/usr/local/opt/gettext/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/tux/Downloads/software/google-cloud-sdk/path.bash.inc' ]; then . '/Users/tux/Downloads/software/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/tux/Downloads/software/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/tux/Downloads/software/google-cloud-sdk/completion.bash.inc'; fi

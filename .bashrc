@@ -113,9 +113,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
 ##########################
 ###### Custom lines ######
 ##########################
+
+
 HISTTIMEFORMAT="%F %T  "
 source ~/Documents/programming/dotfiles/.settings_priv
 
@@ -198,15 +201,24 @@ complete -F _quilt_completion $_quilt_complete_opt dquilt
 # XXX: if we set PAGER here, less in IPython will mess ANSI colors.
 # export PAGER='less -i'  # case-insensitive search
 
-# Determine OS.
 if [[ $(uname -s) = 'Darwin' ]]; then
     export OS='osx'
 else
     export OS='linux'
 fi
 
+OLDPATH="$PATH"
 export GOPATH=/Users/tux/Downloads/code/goworkspace
-export PATH="$HOME/Documents/programming/bin:$HOME/Documents/programming/bin/vault:$PATH:$GOPATH/bin"
+PATH="$HOME/Documents/programming/bin:"
+PATH+=/usr/local/opt/coreutils/libexec/gnubin:
+PATH+=/usr/local/opt/gnu-sed/libexec/gnubin:
+PATH+=/usr/local/opt/gnu-tar/libexec/gnubin:
+PATH+=/usr/local/opt/gettext/bin:
+PATH+=/usr/local/opt/openssl@1.1/bin:
+PATH+=/usr/local/sbin:
+PATH+=/Users/tux/Downloads/code/goworkspace/bin:
+PATH="$PATH$OLDPATH"
+unset OLDPATH
 
 # For GNU ls color. Verbatim output of dircolors on Ubuntu 12.04
 eval "$(/usr/local/bin/gdircolors)"
@@ -219,9 +231,8 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 # For readline edit-and-execute-command (C-x C-e)
 export VISUAL=vim
 export EDITOR=vim
-PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 [ -x /usr/local/bin/lesspipe.sh ] && eval "$(SHELL=/bin/sh lesspipe.sh)"
+
+complete -C /usr/local/bin/vault vault
+export DOCKER_BUILDKIT=1
