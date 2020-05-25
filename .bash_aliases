@@ -8,6 +8,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
 
 # This will ensure that Vim in Homebrew is invoked rather than the
 # less featureful Vi in OS X.
@@ -41,30 +42,19 @@ alias sudo='sudo '
 alias diff='diff -u'
 
 
-alias lt='ls -lt'
-alias lh='ls -lh'
-
-alias smth='mylogin smth'
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
 
 ###
 # From rex zhang
 ###
-alias a="alias"
 alias curl='curl -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.57 Safari/537.1"'
 
 # Use \command to ignore alias
 alias df='df -h'
 #alias ping="ping -c 5"
 
-# Python related
-alias py="python"
-alias ipy="ipython"
-alias bpy="bpython"
-alias py3="python3"
-#alias pmr="python manage.py runserver 0.0.0.0:8000"
-#alias pm="python manage.py"
-#alias pms="python manage.py shell"
-#alias pmsyn="python manage.py syncdb"
 alias pyc="find . -name '*.pyc' "
 alias pycd='pyc -delete'
 
@@ -128,7 +118,7 @@ mycd () {
 alias cd='mycd'
 
 myldapsearch() {
-    ldapsearch "$*" | perl -MMIME::Base64 -n -00 -e \
+    /usr/bin/ldapsearch "$*" | perl -MMIME::Base64 -n -00 -e \
         's/\n +//g;s/(?<=:: )(\S+)/decode_base64($1)/eg;print'
 }
 alias ldapsearch=myldapsearch
